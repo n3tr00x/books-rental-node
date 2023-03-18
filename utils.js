@@ -1,6 +1,6 @@
 import PromptSync from 'prompt-sync';
 import chalk from 'chalk';
-import { readFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 
 const databasePath = './database/database.json';
 
@@ -14,6 +14,17 @@ export const readData = () => {
 	try {
 		const data = readFileSync(databasePath);
 		return JSON.parse(data);
+	} catch (err) {
+		error('Błąd: ' + err.message);
+	}
+};
+
+export const writeData = data => {
+	try {
+		const state = readData();
+		const json = JSON.stringify([...state, data]);
+
+		writeFileSync(databasePath, json);
 	} catch (err) {
 		error('Błąd: ' + err.message);
 	}
