@@ -1,4 +1,12 @@
-import { readData, clear, error, input, log as print } from '../utils.js';
+import {
+	readData,
+	clear,
+	error,
+	input,
+	log as print,
+	writeData,
+} from '../utils.js';
+import Book from '../Domain/Book/Book.js';
 
 class App {
 	#greetings() {
@@ -18,7 +26,7 @@ class App {
 		switch (option) {
 			case '1':
 				clear();
-				this.#applicationHandler();
+				this.#addRentalHandler();
 				break;
 			case '2':
 				clear();
@@ -47,6 +55,49 @@ class App {
 
 	#displayRentals() {
 		console.log(readData());
+	}
+
+	#addBookRental() {
+		clear();
+		const name = input('Podaj nazwę: ');
+		const publisher = input('Podaj wydawcę: ');
+		const amount = input('Podaj kwotę: ');
+		const author = input('Podaj autora: ');
+		// print(Book.getTypes());
+		const type = input('Podaj rodzaj książki: ');
+
+		const book = new Book(name, publisher, amount, author, type);
+
+		const data = {
+			name: book.getName(),
+			publisher: book.getPublisher(),
+			amount: book.getAmount(),
+			author: book.getAuthor(),
+			type: book.getType(),
+		};
+
+		// print(data);
+
+		writeData(data);
+	}
+
+	#addRentalHandler() {
+		const data = readData();
+
+		print('(1) Książka\n(2) Gra planszowa');
+		const rentalType = input('Podaj typ pozycji: ');
+
+		switch (rentalType) {
+			case '1':
+				this.#addBookRental();
+				break;
+			case '2':
+				break;
+			default:
+				clear();
+				error('Podaj poprawny typ pozycji!\n');
+				this.#addRentalHandler();
+		}
 	}
 
 	main() {
