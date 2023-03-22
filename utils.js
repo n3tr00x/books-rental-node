@@ -10,6 +10,27 @@ export const error = message => {
 	log(chalk.red(message));
 };
 
+export const validate = (text, type) => {
+	let field = '';
+
+	switch (type) {
+		case 'string':
+			while (field === '') {
+				field = input(text);
+			}
+			break;
+		case 'number':
+			while (isNaN(field) || field === '') {
+				field = input(text);
+			}
+			break;
+		default:
+			return;
+	}
+
+	return field;
+};
+
 export const readData = () => {
 	try {
 		const data = readFileSync(databasePath);
