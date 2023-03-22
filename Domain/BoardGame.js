@@ -1,4 +1,4 @@
-import Position from '../Position/Position.js';
+import Position from './Position/Position.js';
 
 class BoardGame extends Position {
 	#minAge;
@@ -11,11 +11,11 @@ class BoardGame extends Position {
 	}
 
 	getMinAge() {
-		return this.#minAge;
+		return +this.#minAge;
 	}
 
 	getMaxAge() {
-		return this.#maxAge;
+		return +this.#maxAge;
 	}
 }
 
