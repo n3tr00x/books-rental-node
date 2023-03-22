@@ -10,6 +10,7 @@ import {
 import Menu from './Menu/Menu.js';
 import Book from '../Domain/Book.js';
 import BoardGame from '../Domain/BoardGame.js';
+import chalk from 'chalk';
 
 class App {
 	menu = new Menu();
@@ -23,6 +24,11 @@ class App {
 			case '2':
 				clear();
 				this.#displayRentals();
+				this.#applicationHandler();
+				break;
+			case '3':
+				clear();
+				this.#countAmount();
 				this.#applicationHandler();
 				break;
 			case '5':
@@ -136,6 +142,18 @@ class App {
 				error('Podaj poprawny typ pozycji!\n');
 				this.#addRentalHandler();
 		}
+	}
+
+	#countAmount() {
+		const data = readData();
+		const totalAmount = data.reduce(
+			(accumulator, { amount }) => accumulator + amount,
+			0
+		);
+
+		print(
+			`Suma kwot z wypożyczeń wynosi ${chalk.greenBright(totalAmount)}`
+		);
 	}
 
 	main() {
