@@ -52,7 +52,14 @@ class App {
 	}
 
 	#displayRentals() {
-		print(readData());
+		const data = readData();
+		let text = '';
+
+		data.forEach(rental => {
+			text += `Nazwa: ${rental.name}`;
+		});
+
+		print(text);
 	}
 
 	#addBookRental() {
@@ -76,6 +83,8 @@ class App {
 		const book = new Book(name, publisher, amount, author, type);
 
 		const data = {
+			id: book.getId(),
+			className: book.getClassName(),
 			name: book.getName(),
 			publisher: book.getPublisher(),
 			amount: book.getAmount(),
@@ -83,9 +92,7 @@ class App {
 			type: book.getType(),
 		};
 
-		console.log(data);
-
-		// writeData(data);
+		writeData(data);
 	}
 
 	#addBoardGameRental() {
@@ -114,6 +121,8 @@ class App {
 		);
 
 		const data = {
+			id: boardGame.getId(),
+			className: boardGame.getClassName(),
 			name: boardGame.getName(),
 			publisher: boardGame.getPublisher(),
 			amount: boardGame.getAmount(),
@@ -121,9 +130,7 @@ class App {
 			maxAge: boardGame.getMaxAge(),
 		};
 
-		console.log(data);
-
-		// writeData(data);
+		writeData(data);
 	}
 
 	#addRentalHandler() {
