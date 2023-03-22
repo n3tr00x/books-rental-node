@@ -1,8 +1,23 @@
 [
 	{
-		"name": "hubert"
+		"name": "Igrzyska Smierci",
+		"publisher": "XYZ",
+		"amount": 19.99,
+		"author": "Suzanne Collins",
+		"type": "dorośli"
 	},
 	{
-		"name": "mateusz"
+		"name": "Krol Szczurow",
+		"publisher": "ZYX",
+		"amount": 9.99,
+		"author": "James Clavell",
+		"type": "młodzież"
+	},
+	{
+		"name": "Rok 1984",
+		"publisher": "Muza",
+		"amount": 12.49,
+		"author": "George Orwell",
+		"type": "młodzież"
 	}
 ]
