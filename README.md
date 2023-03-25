@@ -7,7 +7,9 @@ I have decided to recreate this project in Node.js. I tried it programme in OOP 
 
 ## Installation
 
-To install the project, you need to have a JavaScript runtime environment - Node.js and npm. Here is the link: https://nodejs.org/en
+To install the project, you need to have a JavaScript runtime environment - Node.js and npm. 
+
+Here is the link: https://nodejs.org/en
 ```bash
   cd my-project
   npm install
