@@ -9,6 +9,9 @@ export const { log, clear } = console;
 export const error = message => {
 	log(chalk.red(message));
 };
+export const highlight = message => {
+	return chalk.greenBright(message);
+};
 
 export const validate = (text, type) => {
 	let field = '';
