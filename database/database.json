@@ -1,23 +1,11 @@
 [
 	{
-		"name": "Igrzyska Smierci",
-		"publisher": "XYZ",
-		"amount": 19.99,
-		"author": "Suzanne Collins",
-		"type": "dorośli"
-	},
-	{
-		"name": "Krol Szczurow",
-		"publisher": "ZYX",
+		"id": 1679753073806,
+		"className": "book",
+		"name": "Spalony",
+		"publisher": "Weszlo",
 		"amount": 9.99,
-		"author": "James Clavell",
-		"type": "młodzież"
-	},
-	{
-		"name": "Rok 1984",
-		"publisher": "Muza",
-		"amount": 12.49,
-		"author": "George Orwell",
-		"type": "młodzież"
+		"author": "Andrzej Iwan, Krzysztof Stanowski",
+		"type": "dorośli"
 	}
 ]
