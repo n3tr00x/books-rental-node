@@ -6,11 +6,11 @@ import {
 	log as print,
 	writeData,
 	validate,
+	highlight,
 } from '../utils.js';
 import Menu from './Menu/Menu.js';
 import Book from '../Domain/Book.js';
 import BoardGame from '../Domain/BoardGame.js';
-import chalk from 'chalk';
 
 class App {
 	menu = new Menu();
@@ -20,6 +20,7 @@ class App {
 			case '1':
 				clear();
 				this.#addRentalHandler();
+				this.#applicationHandler();
 				break;
 			case '2':
 				clear();
@@ -31,7 +32,7 @@ class App {
 				this.#countAmount();
 				this.#applicationHandler();
 				break;
-			case '5':
+			case '4':
 				clear();
 				print('Dziękujemy za skorzystanie z programu :)');
 				break;
@@ -55,8 +56,10 @@ class App {
 		const data = readData();
 		let text = '';
 
-		data.forEach(rental => {
-			text += `Nazwa: ${rental.name}`;
+		data.forEach(({ name, author, type, amount }, index) => {
+			text += `(${index + 1}) ${highlight(
+				name
+			)}, ${author} - ${type} ${highlight(amount)}\n`;
 		});
 
 		print(text);
@@ -158,9 +161,7 @@ class App {
 			0
 		);
 
-		print(
-			`Suma kwot z wypożyczeń wynosi ${chalk.greenBright(totalAmount)}`
-		);
+		print(`Suma kwot z wypożyczeń wynosi ${highlight(totalAmount)}`);
 	}
 
 	main() {
